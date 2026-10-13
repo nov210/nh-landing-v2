@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NH 자산관리 시스템 · UI·UX 디자인</title>
+<link rel="preload" href="assets/fonts/pretendard/Pretendard-Bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/v2.css">
+<script>document.documentElement.classList.add('js')</script>
+<script src="js/v2.js" defer></script>
+</head>
+<body>
+
+<!-- 상단 바: CI + 챕터 위치 (NH 업무 시스템 GNB의 파란 pill 문법) -->
+<header class="bar">
+  <div class="bar__in">
+    <img class="bar__ci" src="assets/public/nh-ci-signature.png" alt="NH농협은행" height="28">
+    <nav class="bar__nav" aria-label="챕터">
+      <a href="#S2" data-ch="S2"><b>01</b>맥락과 판단</a>
+      <a href="#S5" data-ch="S5"><b>02</b>신규 관리자 대시보드</a>
+      <a href="#S6" data-ch="S6"><b>03</b>사택 신청 업무</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══ S1 HERO ═══ -->
+<section id="S1" class="hero">
+  <div class="wrap">
+    <p class="hero__eyebrow rv"><i></i>NH 자산관리 시스템</p>
+    <h1 class="display rv d1">자산관리 시스템<br><span class="hl-blue">UI·UX 디자인</span></h1>
+    <p class="body rv d2">신규 대시보드와 사택 신청 업무를 중심으로 복잡한 운영 흐름을 더 명확한 화면 구조로 재설계했다.</p>
+    <dl class="hero__meta rv d3">
+      <div><dt>기간</dt><dd>2026.08 — 2026.11</dd></div>
+      <div><dt>범위</dt><dd>신규 대시보드 / 사택 신청 업무</dd></div>
+      <div><dt>역할</dt><dd>UI/UX 디자인 · 디자인 가이드 기획 및 작성 · 주요 화면 설계</dd></div>
+    </dl>
+  </div>
+  <div class="wrap">
+    <div class="hero__panel">
+      <span class="ci-chip"><img src="assets/public/nh-ci-signature.png" alt="NH농협은행"></span>
+      <span class="hero__tag">자산관리 시스템 · UI·UX</span>
+      <figure class="frame rv-img">
+        <div class="frame__top"><i></i><i></i><i></i></div>
+        <img src="assets/public/nh-dashboard-redacted.png" width="1920" height="882" alt="NH 제공 관리자 대시보드 시안. 수치와 식별정보를 가린 사본">
+      </figure>
+      <p class="hero__cap caption"><span>대표 대시보드</span><span>NH 제공 시안 · 수치·식별정보 가림</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ S2 맥락과 판단 ═══ -->
+<section id="S2" class="scene">
+  <div class="wrap ctx">
+    <div class="msg rv">
+      <p class="ctx__idx">01</p>
+      <h2 class="headline">맥락과 판단</h2>
+      <p class="body">대시보드와 사택 신청 업무를 중심으로 설계했다.</p>
+    </div>
+    <dl class="dl rv d1">
+      <div><dt>시스템</dt><dd>자산관리시스템 (PC 업무 시스템)</dd></div>
+      <div><dt>사용자</dt><dd>본부 총괄 / 지역 관리자 / 영업점</dd></div>
+      <div><dt>디자인 기간</dt><dd>2026.08–2026.11 · 진행 중</dd></div>
+      <div><dt>내 역할</dt><dd>전체 UI/UX 디자인 · 디자인 가이드 기획 및 작성 · 업무/기획 내용 분석 · 신규 대시보드 설계 · 주요 화면 설계</dd></div>
+      <div><dt>케이스 범위</dt><dd>신규 대시보드, 사택 신청 업무</dd></div>
+      <div><dt>시스템 제약</dt><dd>WebSquare, Windows·Edge, 1600~1920 해상도</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ═══ S3 AS-IS ═══ -->
+<section id="S3" class="scene scene--soft">
+  <div class="wrap">
+    <div class="msg rv">
+      <h2 class="headline">기존 시스템의 문제</h2>
+      <p class="body">입력할 곳, 눌러야 할 것, 지금 위치가 화면에서 구분되지 않았다.</p>
+    </div>
+    <div class="asis">
+      <div class="asis__imgs">
+        <figure><div class="frame frame--flat rv-img"><img src="assets/public/nh-asis-acquisition-redacted.jpg" alt="기존 NH 시스템 일반자산 취득 화면. 내부 표시를 가리고 블러 처리한 사본"></div><p class="caption">기존 시스템 · 일반자산 취득<br>NH 자료 · 수치·식별정보 가림</p></figure>
+        <figure><div class="frame frame--flat rv-img d2"><img src="assets/public/nh-asis-transfer-redacted.jpg" alt="기존 NH 시스템 이관등록 화면. 내부 표시를 가리고 블러 처리한 사본"></div><p class="caption">기존 시스템 · 이관등록<br>NH 자료 · 수치·식별정보 가림</p></figure>
+      </div>
+      <ol class="issues">
+        <li class="rv"><b>01</b><span>입력 가능한 칸과 읽기전용 칸의 구분</span></li>
+        <li class="rv d1"><b>02</b><span>버튼의 시각적 위계</span></li>
+        <li class="rv d2"><b>03</b><span>현재 위치 표시의 일치</span></li>
+        <li class="rv d3"><b>04</b><span>사용자가 해석해야 하는 계산 규칙</span></li>
+      </ol>
+    </div>
+    <p class="caption note rv">개선 대상과 다른 업무 화면 · 기존 시스템의 개발 환경 화면</p>
+  </div>
+</section>
+
+<!-- ═══ S4 설계 판단 ═══ -->
+<section id="S4" class="scene">
+  <div class="wrap">
+    <div class="msg rv">
+      <h2 class="headline">설계 판단</h2>
+      <p class="body">문제마다 어떤 판단을 했고, 어느 화면에 반영했는지.</p>
+    </div>
+    <div class="dec">
+      <article class="dec__row">
+        <span class="dec__no rv">01</span>
+        <div class="dec__prob rv"><span class="label">Problem</span><p>기획안 면적이 중요도처럼 읽힐 위험</p></div>
+        <div class="dec__d rv d1"><span class="label">Decision</span><p>관리 판단 순서(총자산 → 지역 → 예산 집행)로 위계</p></div>
+        <figure class="dec__ev"><div class="frame rv-img d2"><img class="crop" src="assets/public/nh-dashboard-redacted.png" alt="대시보드 시안"></div><figcaption class="caption" style="margin-top:12px">대시보드 · NH 자료 · 수치·식별정보 가림</figcaption></figure>
+      </article>
+      <article class="dec__row">
+        <span class="dec__no rv">02</span>
+        <div class="dec__prob rv"><span class="label">Problem</span><p>사택 신청의 수기 시세조사·한도 계산·요건 확인·결재선 지정</p></div>
+        <div class="dec__d rv d1"><span class="label">Decision</span><p>규칙을 하나의 단계형 입력 폼과 자동검색으로 화면화</p></div>
+        <figure class="dec__ev"><div class="frame rv-img d2"><img class="crop" src="assets/public/nh-application-main-preview.png" alt="신규사택신청 시안의 폼 영역"></div><figcaption class="caption" style="margin-top:12px">신규사택신청 · NH 자료 · 수치·식별정보 가림</figcaption></figure>
+      </article>
+      <article class="dec__row">
+        <span class="dec__no rv">03</span>
+        <div class="dec__prob rv"><span class="label">Problem</span><p>입력 가능/불가 칸 구분 없음</p></div>
+        <div class="dec__d rv d1"><span class="label">Decision</span><p>입력칸 상태를 토큰으로 구분</p></div>
+        <figure class="dec__ev"><div class="frame rv-img d2"><img class="crop" src="assets/public/nh-application-input-detail.png" alt="신청 폼의 입력칸과 읽기전용 칸"></div><figcaption class="caption" style="margin-top:12px">신청 폼 · NH 자료 · 수치·식별정보 가림</figcaption></figure>
+      </article>
+      <article class="dec__row">
+        <span class="dec__no rv">04</span>
+        <div class="dec__prob rv"><span class="label">Problem</span><p>1600~1920 × LNB 유무 4가지 폭 대응</p></div>
+        <div class="dec__d rv d1"><span class="label">Decision</span><p>라벨·여백은 고정, 칸 폭만 비율 축소</p></div>
+        <figure class="dec__ev"><div class="frame rv-img d2"><img class="crop" src="assets/public/nh-status-versions-detail.png" alt="사택신청현황 네 버전"></div><figcaption class="caption" style="margin-top:12px">사택신청현황 4버전 · NH 자료 · 수치·식별정보 가림</figcaption></figure>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ T1 디자인 가이드: 스크롤에 맞춰 슬라이드처럼 지나감 ═══ -->
+<section id="T1" class="gl" aria-labelledby="T1-title">
+  <div class="wrap gl__head"><h2 id="T1-title" class="headline rv">가이드의 기준이 실제 화면으로 이어진다</h2></div>
+  <div class="gl__stage" aria-label="디자인 가이드 페이지">
+    <div class="gl__tilt"><div class="gl__row"><ul class="gl__track"><li class="gl__card"><div class="swatch"><b>기준색 #1C5EE0</b><span>NH 자산관리 시스템 · Brand Blue</span></div></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-color.jpg" alt="디자인 가이드 · 컬러" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-type.jpg" alt="디자인 가이드 · 타이포그래피" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-grid.jpg" alt="디자인 가이드 · 그리드 · 간격" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-shape.jpg" alt="디자인 가이드 · Shape" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-title.jpg" alt="디자인 가이드 · 타이틀" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-tab.jpg" alt="디자인 가이드 · 탭" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-tree.jpg" alt="디자인 가이드 · 트리" loading="lazy"></figure></li><li class="gl__card"><div class="swatch"><b>기준색 #1C5EE0</b><span>NH 자산관리 시스템 · Brand Blue</span></div></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-color.jpg" alt="디자인 가이드 · 컬러" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-type.jpg" alt="디자인 가이드 · 타이포그래피" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-grid.jpg" alt="디자인 가이드 · 그리드 · 간격" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-shape.jpg" alt="디자인 가이드 · Shape" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-title.jpg" alt="디자인 가이드 · 타이틀" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-tab.jpg" alt="디자인 가이드 · 탭" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-tree.jpg" alt="디자인 가이드 · 트리" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-input.jpg" alt="디자인 가이드 · 입출력 폼" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-header.jpg" alt="디자인 가이드 · 헤더 (GNB · LNB · 탭)" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-badge.jpg" alt="디자인 가이드 · 배지" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-step.jpg" alt="디자인 가이드 · 스텝바" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-accordion.jpg" alt="디자인 가이드 · 아코디언" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-card.jpg" alt="디자인 가이드 · 요약 카드" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-popup.jpg" alt="디자인 가이드 · 팝업" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-input.jpg" alt="디자인 가이드 · 입출력 폼" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-header.jpg" alt="디자인 가이드 · 헤더 (GNB · LNB · 탭)" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-badge.jpg" alt="디자인 가이드 · 배지" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-step.jpg" alt="디자인 가이드 · 스텝바" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-accordion.jpg" alt="디자인 가이드 · 아코디언" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-card.jpg" alt="디자인 가이드 · 요약 카드" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-popup.jpg" alt="디자인 가이드 · 팝업" loading="lazy"></figure></li></ul><ul class="gl__track" aria-hidden="true"><li class="gl__card"><div class="swatch"><b>기준색 #1C5EE0</b><span>NH 자산관리 시스템 · Brand Blue</span></div></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-color.jpg" alt="디자인 가이드 · 컬러" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-type.jpg" alt="디자인 가이드 · 타이포그래피" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-grid.jpg" alt="디자인 가이드 · 그리드 · 간격" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-shape.jpg" alt="디자인 가이드 · Shape" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-title.jpg" alt="디자인 가이드 · 타이틀" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-tab.jpg" alt="디자인 가이드 · 탭" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-tree.jpg" alt="디자인 가이드 · 트리" loading="lazy"></figure></li><li class="gl__card"><div class="swatch"><b>기준색 #1C5EE0</b><span>NH 자산관리 시스템 · Brand Blue</span></div></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-color.jpg" alt="디자인 가이드 · 컬러" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-type.jpg" alt="디자인 가이드 · 타이포그래피" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-grid.jpg" alt="디자인 가이드 · 그리드 · 간격" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-shape.jpg" alt="디자인 가이드 · Shape" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-title.jpg" alt="디자인 가이드 · 타이틀" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-tab.jpg" alt="디자인 가이드 · 탭" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-tree.jpg" alt="디자인 가이드 · 트리" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-input.jpg" alt="디자인 가이드 · 입출력 폼" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-header.jpg" alt="디자인 가이드 · 헤더 (GNB · LNB · 탭)" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-badge.jpg" alt="디자인 가이드 · 배지" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-step.jpg" alt="디자인 가이드 · 스텝바" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-accordion.jpg" alt="디자인 가이드 · 아코디언" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-card.jpg" alt="디자인 가이드 · 요약 카드" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-popup.jpg" alt="디자인 가이드 · 팝업" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-input.jpg" alt="디자인 가이드 · 입출력 폼" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-header.jpg" alt="디자인 가이드 · 헤더 (GNB · LNB · 탭)" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-badge.jpg" alt="디자인 가이드 · 배지" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-step.jpg" alt="디자인 가이드 · 스텝바" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-accordion.jpg" alt="디자인 가이드 · 아코디언" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-card.jpg" alt="디자인 가이드 · 요약 카드" loading="lazy"></figure></li><li class="gl__card"><figure class="frame frame--flat"><img src="assets/public/gl-popup.jpg" alt="디자인 가이드 · 팝업" loading="lazy"></figure></li></ul></div></div>
+  </div>
+</section>
+
+<!-- ═══ S5 신규 관리자 대시보드 ═══ -->
+<section id="S5">
+  <div class="opener">
+    <div class="wrap rv"><p class="ctx__idx">02</p><h2>신규 관리자 대시보드</h2><span class="ci-chip"><img src="assets/public/nh-ci-signature.png" alt="NH농협은행"></span></div>
+  </div>
+
+  <div class="dash-ctx">
+    <div class="wrap">
+      <div class="msg rv">
+        <h3 class="headline">첫 화면은 관리 판단 순서대로 읽힌다</h3>
+      </div>
+      <ol class="steps rv d1" aria-label="판단 순서">
+        <li><span>1</span>총자산</li><li class="arr">→</li><li><span>2</span>지역</li><li class="arr">→</li><li><span>3</span>예산 집행</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="zoom">
+    <div class="wrap zoom__in">
+      <div class="zoom__stage" id="zoomStage" data-active="1">
+        <figure class="frame">
+          <img src="assets/public/nh-dashboard-redacted.png" width="1920" height="882" alt="대시보드 전체 맥락">
+          <span class="hl" aria-hidden="true"></span>
+        </figure>
+        <p class="caption" style="margin-top:16px">대시보드 전체 맥락 · NH 자료 · 수치·식별정보 가림</p>
+      </div>
+      <ol class="zoom__steps">
+        <li data-step="1">
+          <span class="label">01 · 총자산</span>
+          <h3 class="rv">총자산을 먼저 파악하는 위계</h3>
+          <figure class="frame rv-img"><img src="assets/public/nh-dashboard-assets-detail.png" alt="총자산 영역. 수치를 가린 사본"></figure>
+          <p class="caption" style="margin-top:12px">총자산 영역 · NH 자료 · 수치·식별정보 가림</p>
+        </li>
+        <li data-step="2">
+          <span class="label">02 · 지역</span>
+          <h3 class="rv">지역별 현황을 읽는 구조</h3>
+          <figure class="frame rv-img"><img src="assets/public/nh-dashboard-regions-detail.png" alt="지역 영역. 수치를 가린 사본"></figure>
+          <p class="caption" style="margin-top:12px">지역 영역 · NH 자료 · 수치·식별정보 가림</p>
+        </li>
+        <li data-step="3">
+          <span class="label">03 · 예산 집행</span>
+          <h3 class="rv">계획과 집행을 확인하는 구조</h3>
+          <figure class="frame rv-img"><img src="assets/public/nh-dashboard-budget-detail.png" alt="예산 집행 영역. 수치를 가린 사본"></figure>
+          <p class="caption" style="margin-top:12px">예산 집행 영역 · NH 자료 · 수치·식별정보 가림</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ S6 사택 신청 업무 ═══ -->
+<section id="S6">
+  <div class="opener">
+    <div class="wrap rv"><p class="ctx__idx">03</p><h2>사택 신청 업무: <i>규칙</i>을 화면으로</h2><span class="ci-chip"><img src="assets/public/nh-ci-signature.png" alt="NH농협은행"></span></div>
+  </div>
+
+  <div class="scene manual" id="S6a">
+    <div class="wrap">
+      <div class="msg rv"><h3 class="headline">기존 업무 절차</h3></div>
+      <ol class="flow">
+        <li class="flow__s rv-slide"><small>01</small><p>시세 확인</p></li><li class="flow__g">→</li>
+        <li class="flow__s rv-slide d1"><small>02</small><p>한도 계산</p></li><li class="flow__g">→</li>
+        <li class="flow__s rv-slide d2"><small>03</small><p>거리·요건 확인</p></li><li class="flow__g">→</li>
+        <li class="flow__s rv-slide d3"><small>04</small><p>결재선 판단</p></li><li class="flow__g">→</li>
+        <li class="flow__s rv-slide d3"><small>05</small><p>서식 첨부</p></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="scene scene--soft" id="S6b">
+    <div class="wrap">
+      <div class="msg rv"><h3 class="headline">입력하면 시스템이 판정하는 흐름</h3></div>
+      <ol class="flow">
+        <li class="flow__s rv-slide"><small>INPUT</small><p>입력</p></li><li class="flow__g">→</li>
+        <li class="flow__s flow__s--hl flow__s--w2 rv-slide d1"><small>VALIDATE</small><p>면적·한도·거리·운영형태 기준 자동 검증</p></li><li class="flow__g">→</li>
+        <li class="flow__s flow__s--w2 rv-slide d2"><small>ROUTE</small><p>결재 루트 자동 세팅</p><div class="pills"><span>원칙 승인</span><span>예외 승인</span></div></li>
+      </ol>
+      <p class="caption note rv">규칙은 요구사항 문서에 정의된 것, 나는 그 규칙을 분석해 화면으로 설계했다.</p>
+    </div>
+  </div>
+
+  <div class="scene" id="S6c">
+    <div class="wrap">
+      <div class="msg rv"><h3 class="headline">신규사택신청 화면</h3><p class="body">신규사택신청 · 첫 단계</p></div>
+      <div class="app">
+        <div>
+          <figure class="frame rv-img">
+            <div class="frame__top"><i></i><i></i><i></i></div>
+            <img class="app__crop" src="assets/public/nh-application-redacted.png" alt="신규사택신청 시안. 입력값과 식별정보를 가린 사본">
+          </figure>
+          <p class="caption" style="margin-top:12px">신규사택신청 · 첫 단계 · NH 자료 · 수치·식별정보 가림</p>
+        </div>
+        <ol class="call">
+          <li class="rv"><b>01</b>자동검색</li>
+          <li class="rv d1"><b>02</b>필수 표시</li>
+          <li class="rv d2"><b>03</b>읽기전용 칸 구분</li>
+          <li class="rv d3"><b>04</b>동의 확인</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="scene scene--soft" id="T4">
+    <div class="wrap">
+      <div class="msg rv"><h3 class="headline">폭이 달라져도 칸 폭만 줄어든다</h3></div>
+      <div class="layout">
+        <div class="layout__row">
+          <p class="tag rv"><i>BEFORE</i>넓은 화면 · LNB 없음</p>
+          <figure class="frame rv-img" style="width:100%"><img src="assets/public/nh-status-wide-full-redacted.png" alt="사택신청현황 넓은 화면, LNB 없음"></figure>
+        </div>
+        <div class="layout__row">
+          <p class="tag rv"><i>AFTER</i>폭이 줄어든 화면 · LNB 있음</p>
+          <figure class="frame rv-img d1" style="width:83.333%"><img src="assets/public/nh-status-narrow-lnb-redacted.png" alt="사택신청현황 폭이 줄어든 화면, LNB 있음"></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scene" id="S6d">
+    <div class="wrap">
+      <div class="msg rv"><h3 class="headline">사택신청현황 화면</h3><p class="body">조회 → 요약 → 목록. 폭과 LNB 조건에 대응하는 같은 규칙.</p></div>
+      <div class="vset">
+        <figure class="rv"><div><div class="frame w100"><img src="assets/public/nh-status-wide-full-redacted.png" alt="넓은 화면 · LNB 없음"></div></div><figcaption>넓은 화면 · LNB 없음<small>NH 자료 · 수치·식별정보 가림</small></figcaption></figure>
+        <figure class="rv d1"><div><div class="frame w100"><img src="assets/public/nh-status-wide-lnb-redacted.png" alt="넓은 화면 · LNB 있음"></div></div><figcaption>넓은 화면 · LNB 있음<small>NH 자료 · 수치·식별정보 가림</small></figcaption></figure>
+        <figure class="rv"><div><div class="frame w83"><img src="assets/public/nh-status-narrow-full-redacted.png" alt="폭이 줄어든 화면 · LNB 없음"></div></div><figcaption>폭이 줄어든 화면 · LNB 없음<small>NH 자료 · 수치·식별정보 가림</small></figcaption></figure>
+        <figure class="rv d1"><div><div class="frame w83"><img src="assets/public/nh-status-narrow-lnb-redacted.png" alt="폭이 줄어든 화면 · LNB 있음"></div></div><figcaption>폭이 줄어든 화면 · LNB 있음<small>NH 자료 · 수치·식별정보 가림</small></figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ S7 마무리 ═══ -->
+<section id="S7" class="scene scene--soft close">
+  <div class="wrap close__grid">
+    <h2 class="headline rv">이 케이스에서 맡은 것과<br>다루지 않은 것</h2>
+    <div class="rv d1">
+      <p class="big">전체 UI/UX 디자인 · 디자인 가이드 기획 및 작성 · 업무/기획 내용 분석 · 신규 대시보드 설계 · 주요 화면 설계</p>
+      <p class="body" style="margin-top:16px">이 케이스는 신규 대시보드와, 서브페이지 구성의 샘플로 사택 신청 업무를 다룹니다.</p>
+      <hr>
+      <p class="label" style="color:var(--cap);margin-bottom:12px">다루지 않은 것</p>
+      <ul><li>차량 신청 / 리스료 지급</li><li>지역 관리자 화면</li></ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <img src="assets/public/nh-ci-signature.png" alt="NH농협은행" height="28">
+    <p class="caption">NH 제공 시안 · 수치·식별정보 가림</p>
+  </div>
+</footer>
+
+</body>
+</html>
