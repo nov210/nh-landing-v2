@@ -85,3 +85,53 @@
   .mo .hero__panel,.mo .hero__panel .frame,.mo .opener h2,.mo .opener .ci-chip,.mo .px{transform:none!important;opacity:1!important}
   .mo .hero__panel .frame{transform:translateX(-50%)!important}
 }
+
+/* ============================================================
+   Attio식: 페이지를 관통하는 세로 가이드선 + 화면 위 커서 데모
+   ============================================================ */
+.mo body::before{
+  content:"";position:fixed;inset:0;z-index:40;pointer-events:none;
+  background:linear-gradient(90deg,
+    transparent calc(50% - 601px),rgba(23,36,58,.07) calc(50% - 601px),rgba(23,36,58,.07) calc(50% - 600px),transparent calc(50% - 600px),
+    transparent calc(50% + 600px),rgba(23,36,58,.07) calc(50% + 600px),rgba(23,36,58,.07) calc(50% + 601px),transparent calc(50% + 601px));
+}
+.demo{position:absolute;left:0;right:0;top:28px;bottom:0;pointer-events:none}
+.demo__box{
+  position:absolute;border:2px solid var(--blue);border-radius:10px;background:rgba(28,94,224,.08);
+  left:1.6%;top:11%;width:35.5%;height:9%;opacity:0;
+  transition:left .9s cubic-bezier(.65,0,.35,1),top .9s cubic-bezier(.65,0,.35,1),width .9s cubic-bezier(.65,0,.35,1),height .9s cubic-bezier(.65,0,.35,1),opacity .4s;
+}
+.demo__tag{
+  position:absolute;left:-2px;top:-34px;white-space:nowrap;padding:5px 10px;border-radius:8px;
+  background:var(--blue);color:#fff;font-size:13px;font-weight:700;letter-spacing:-.01em;
+}
+.demo__cursor{
+  position:absolute;left:60%;top:60%;width:22px;height:22px;opacity:0;
+  transition:left .9s cubic-bezier(.65,0,.35,1),top .9s cubic-bezier(.65,0,.35,1),opacity .4s,transform .15s;
+  filter:drop-shadow(0 2px 4px rgba(23,36,58,.35));
+}
+.demo__cursor.click{transform:scale(.82)}
+.demo[data-step] .demo__box,.demo[data-step] .demo__cursor{opacity:1}
+.demo[data-step="1"] .demo__box{left:1.6%;top:11%;width:35.5%;height:9%}
+.demo[data-step="2"] .demo__box{left:2.3%;top:19.8%;width:34%;height:50.7%}
+.demo[data-step="3"] .demo__box{left:1.6%;top:73.5%;width:63.8%;height:23.5%}
+.demo[data-step="1"] .demo__cursor{left:30%;top:17%}
+.demo[data-step="2"] .demo__cursor{left:24%;top:52%}
+.demo[data-step="3"] .demo__cursor{left:48%;top:88%}
+
+/* ============================================================
+   Pitch식: 겹쳐 쌓인 화면이 스크롤하면 펼쳐짐 (사택신청현황 4버전)
+   ============================================================ */
+.vset{position:relative}
+.mo .vset figure.fan{
+  transform:translate(calc(var(--dx) * (1 - var(--p, 1))), calc(var(--dy) * (1 - var(--p, 1))))
+            rotate(calc(var(--rot) * (1 - var(--p, 1))))
+            scale(calc(.86 + .14 * var(--p, 1)));
+  will-change:transform;
+}
+.mo .vset figure.fan figcaption{opacity:calc((var(--p, 1) - .75) * 4)}
+.mo .vset figure.fan > div{box-shadow:0 calc(30px * (1 - var(--p, 1))) 60px rgba(23,36,58,calc(.18 * (1 - var(--p, 1))))}
+
+@media (prefers-reduced-motion:reduce){
+  .demo{display:none}
+}

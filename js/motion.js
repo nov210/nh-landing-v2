@@ -40,7 +40,7 @@
   });
 
   // 4) 패럴랙스 대상
-  document.querySelectorAll('.asis__imgs figure:nth-child(2), .vset figure:nth-child(even) > div')
+  document.querySelectorAll('.asis__imgs figure:nth-child(2)')
     .forEach(function(el){ el.classList.add('px'); });
 
   // 5) 스크롤 진행값 --p
@@ -73,6 +73,53 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
   update();
+
+
+  // 7) Attio식 커서 데모: 히어로 대시보드 위를 커서가 돌며 판단 순서를 짚음
+  var heroFrame = document.querySelector('.hero__panel .frame');
+  if (heroFrame) {
+    var demo = document.createElement('div');
+    demo.className = 'demo';
+    demo.setAttribute('aria-hidden', 'true');
+    demo.innerHTML = '<div class="demo__box"><span class="demo__tag">01 총자산</span></div>' +
+      '<svg class="demo__cursor" viewBox="0 0 24 24"><path d="M4 2l16 9.5-7 1.6-3.6 6.4z" fill="#17243A" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>';
+    heroFrame.appendChild(demo);
+    var tag = demo.querySelector('.demo__tag'), cur = demo.querySelector('.demo__cursor');
+    var labels = ['01 총자산', '02 지역', '03 예산 집행'], step = 0;
+    setTimeout(function tick(){
+      step = step % 3 + 1;
+      demo.setAttribute('data-step', step);
+      tag.textContent = labels[step - 1];
+      setTimeout(function(){ cur.classList.add('click'); setTimeout(function(){ cur.classList.remove('click'); }, 160); }, 950);
+      setTimeout(tick, 2600);
+    }, 2200);
+  }
+
+  // 8) Pitch식 펼침: 사택신청현황 4버전이 한 더미에서 2×2로 펼쳐짐
+  var vset = document.querySelector('.vset');
+  var fans = vset ? Array.prototype.slice.call(vset.querySelectorAll('figure')) : [];
+  var rots = [-7, -2.5, 2.5, 7];
+  function measureFan(){
+    if (!vset) return;
+    var cx = vset.offsetWidth / 2, cy = vset.offsetHeight / 2;
+    fans.forEach(function(f, i){
+      f.style.setProperty('--dx', (cx - (f.offsetLeft + f.offsetWidth / 2)) + 'px');
+      f.style.setProperty('--dy', (cy - (f.offsetTop + f.offsetHeight / 2)) + 'px');
+      f.style.setProperty('--rot', rots[i % 4] + 'deg');
+      f.style.zIndex = 4 - i;
+    });
+  }
+  fans.forEach(function(f){ f.classList.remove('rv'); f.classList.add('fan'); });
+  measureFan();
+  window.addEventListener('resize', measureFan);
+  function updateFan(){
+    if (!vset) return;
+    var r = vset.getBoundingClientRect(), vh = window.innerHeight;
+    var p = clamp((vh * 0.85 - r.top) / (vh * 0.6));
+    fans.forEach(function(f){ f.style.setProperty('--p', p.toFixed(3)); });
+  }
+  window.addEventListener('scroll', function(){ requestAnimationFrame(updateFan); }, { passive: true });
+  updateFan();
 
   // 6) 히어로 제목은 로드 직후 바로 재생
   var hero = document.querySelector('.hero .display');
